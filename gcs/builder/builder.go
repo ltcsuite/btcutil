@@ -17,8 +17,8 @@ import (
 )
 
 const (
-	// DefaultP is the default collision probability (2^-20)
-	DefaultP = 20
+	// DefaultP is the default collision probability (2^-19)
+	DefaultP = 19
 
 	// DefaultM is the default value used for the hash range.
 	DefaultM uint64 = 784931
