@@ -8,10 +8,10 @@ import (
 	"bytes"
 	"errors"
 
+	"github.com/iuouiyiuty/ltcutil/base58"
 	"github.com/ltcsuite/ltcd/btcec"
 	"github.com/ltcsuite/ltcd/chaincfg"
 	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
-	"github.com/ltcsuite/ltcutil/base58"
 )
 
 // ErrMalformedPrivateKey describes an error where a WIF-encoded private

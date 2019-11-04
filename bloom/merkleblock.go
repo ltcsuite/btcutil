@@ -5,10 +5,10 @@
 package bloom
 
 import (
+	"github.com/iuouiyiuty/ltcutil"
 	"github.com/ltcsuite/ltcd/blockchain"
 	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
 	"github.com/ltcsuite/ltcd/wire"
-	"github.com/ltcsuite/ltcutil"
 )
 
 // merkleBlock is used to house intermediate information needed to generate a
