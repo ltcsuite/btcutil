@@ -9,10 +9,10 @@ import (
 	"encoding/hex"
 	"testing"
 
+	"github.com/iuouiyiuty/ltcd/chaincfg/chainhash"
+	"github.com/iuouiyiuty/ltcd/wire"
 	"github.com/iuouiyiuty/ltcutil"
 	"github.com/iuouiyiuty/ltcutil/bloom"
-	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
-	"github.com/ltcsuite/ltcd/wire"
 )
 
 // TestFilterLarge ensures a maximum sized filter can be created.

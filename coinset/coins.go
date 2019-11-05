@@ -9,9 +9,9 @@ import (
 	"errors"
 	"sort"
 
+	"github.com/iuouiyiuty/ltcd/chaincfg/chainhash"
+	"github.com/iuouiyiuty/ltcd/wire"
 	"github.com/iuouiyiuty/ltcutil"
-	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
-	"github.com/ltcsuite/ltcd/wire"
 )
 
 // Coin represents a spendable transaction outpoint

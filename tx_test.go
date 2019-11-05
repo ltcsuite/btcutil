@@ -11,8 +11,8 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
+	"github.com/iuouiyiuty/ltcd/chaincfg/chainhash"
 	"github.com/iuouiyiuty/ltcutil"
-	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
 )
 
 // TestTx tests the API for Tx.
