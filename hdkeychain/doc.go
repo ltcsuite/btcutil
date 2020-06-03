@@ -3,7 +3,7 @@
 // license that can be found in the LICENSE file.
 
 /*
-Package hdkeychain provides an API for bitcoin hierarchical deterministic
+Package hdkeychain provides an API for litecoin hierarchical deterministic
 extended keys (BIP0032).
 
 Overview

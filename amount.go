@@ -2,7 +2,7 @@
 // Use of this source code is governed by an ISC
 // license that can be found in the LICENSE file.
 
-package btcutil
+package ltcutil
 
 import (
 	"errors"
@@ -11,12 +11,12 @@ import (
 )
 
 // AmountUnit describes a method of converting an Amount to something
-// other than the base unit of a bitcoin.  The value of the AmountUnit
+// other than the base unit of a litecoin.  The value of the AmountUnit
 // is the exponent component of the decadic multiple to convert from
-// an amount in bitcoin to an amount counted in units.
+// an amount in litecoin to an amount counted in units.
 type AmountUnit int
 
-// These constants define various units used when describing a bitcoin
+// These constants define various units used when describing a litecoin
 // monetary amount.
 const (
 	AmountMegaBTC  AmountUnit = 6
@@ -49,8 +49,8 @@ func (u AmountUnit) String() string {
 	}
 }
 
-// Amount represents the base bitcoin monetary unit (colloquially referred
-// to as a `Satoshi').  A single Amount is equal to 1e-8 of a bitcoin.
+// Amount represents the base litecoin monetary unit (colloquially referred
+// to as a `Satoshi').  A single Amount is equal to 1e-8 of a litecoin.
 type Amount int64
 
 // round converts a floating point number, which may or may not be representable
@@ -65,14 +65,14 @@ func round(f float64) Amount {
 }
 
 // NewAmount creates an Amount from a floating point value representing
-// some value in bitcoin.  NewAmount errors if f is NaN or +-Infinity, but
-// does not check that the amount is within the total amount of bitcoin
+// some value in litecoin.  NewAmount errors if f is NaN or +-Infinity, but
+// does not check that the amount is within the total amount of litecoin
 // producible as f may not refer to an amount at a single moment in time.
 //
 // NewAmount is for specifically for converting BTC to Satoshi.
 // For creating a new Amount with an int64 value which denotes a quantity of Satoshi,
 // do a simple type conversion from type int64 to Amount.
-// See GoDoc for example: http://godoc.org/github.com/btcsuite/btcutil#example-Amount
+// See GoDoc for example: http://godoc.org/github.com/ltcsuite/ltcutil#example-Amount
 func NewAmount(f float64) (Amount, error) {
 	// The amount is only considered invalid if it cannot be represented
 	// as an integer type.  This may happen if f is NaN or +-Infinity.
@@ -82,14 +82,14 @@ func NewAmount(f float64) (Amount, error) {
 	case math.IsInf(f, 1):
 		fallthrough
 	case math.IsInf(f, -1):
-		return 0, errors.New("invalid bitcoin amount")
+		return 0, errors.New("invalid litecoin amount")
 	}
 
 	return round(f * SatoshiPerBitcoin), nil
 }
 
-// ToUnit converts a monetary amount counted in bitcoin base units to a
-// floating point value representing an amount of bitcoin.
+// ToUnit converts a monetary amount counted in litecoin base units to a
+// floating point value representing an amount of litecoin.
 func (a Amount) ToUnit(u AmountUnit) float64 {
 	return float64(a) / math.Pow10(int(u+8))
 }
@@ -99,7 +99,7 @@ func (a Amount) ToBTC() float64 {
 	return a.ToUnit(AmountBTC)
 }
 
-// Format formats a monetary amount counted in bitcoin base units as a
+// Format formats a monetary amount counted in litecoin base units as a
 // string for a given unit.  The conversion will succeed for any unit,
 // however, known units will be formated with an appended label describing
 // the units with SI notation, or "Satoshi" for the base unit.
@@ -115,7 +115,7 @@ func (a Amount) String() string {
 
 // MulF64 multiplies an Amount by a floating point value.  While this is not
 // an operation that must typically be done by a full node or wallet, it is
-// useful for services that build on top of bitcoin (for example, calculating
+// useful for services that build on top of litecoin (for example, calculating
 // a fee by multiplying by a percentage).
 func (a Amount) MulF64(f float64) Amount {
 	return round(float64(a) * f)

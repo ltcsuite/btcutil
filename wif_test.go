@@ -2,14 +2,14 @@
 // Use of this source code is governed by an ISC
 // license that can be found in the LICENSE file.
 
-package btcutil_test
+package ltcutil_test
 
 import (
 	"testing"
 
-	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg"
-	. "github.com/btcsuite/btcutil"
+	"github.com/ltcsuite/ltcd/btcec"
+	"github.com/ltcsuite/ltcd/chaincfg"
+	. "github.com/ltcsuite/ltcutil"
 )
 
 func TestEncodeDecodeWIF(t *testing.T) {
@@ -29,7 +29,7 @@ func TestEncodeDecodeWIF(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	wif2, err := NewWIF(priv2, &chaincfg.TestNet3Params, true)
+	wif2, err := NewWIF(priv2, &chaincfg.TestNet4Params, true)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -40,7 +40,7 @@ func TestEncodeDecodeWIF(t *testing.T) {
 	}{
 		{
 			wif1,
-			"5HueCGU8rMjxEXxiPuD5BDku4MkFqeZyd4dZ1jvhTVqvbTLvyTJ",
+			"6uDNfQ1fknCphurZuj12xcY51qJj3T21Pk2iivwjAxAYHHxwEEr",  //BTC=5HueCGU8rMjxEXxiPuD5BDku4MkFqeZyd4dZ1jvhTVqvbTLvyTJ",
 		},
 		{
 			wif2,

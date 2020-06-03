@@ -2,14 +2,14 @@
 // Use of this source code is governed by an ISC
 // license that can be found in the LICENSE file.
 
-package btcutil
+package ltcutil
 
 import (
 	"bytes"
 	"io"
 
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
+	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
+	"github.com/ltcsuite/ltcd/wire"
 )
 
 // TxIndexUnknown is the value returned for a transaction index that is unknown.
@@ -17,7 +17,7 @@ import (
 // yet.
 const TxIndexUnknown = -1
 
-// Tx defines a bitcoin transaction that provides easier and more efficient
+// Tx defines a litecoin transaction that provides easier and more efficient
 // manipulation of raw transactions.  It also memoizes the hash for the
 // transaction on its first access so subsequent accesses don't have to repeat
 // the relatively expensive hashing operations.
@@ -90,7 +90,7 @@ func (t *Tx) SetIndex(index int) {
 	t.txIndex = index
 }
 
-// NewTx returns a new instance of a bitcoin transaction given an underlying
+// NewTx returns a new instance of a litecoin transaction given an underlying
 // wire.MsgTx.  See Tx.
 func NewTx(msgTx *wire.MsgTx) *Tx {
 	return &Tx{
@@ -99,14 +99,14 @@ func NewTx(msgTx *wire.MsgTx) *Tx {
 	}
 }
 
-// NewTxFromBytes returns a new instance of a bitcoin transaction given the
+// NewTxFromBytes returns a new instance of a litecoin transaction given the
 // serialized bytes.  See Tx.
 func NewTxFromBytes(serializedTx []byte) (*Tx, error) {
 	br := bytes.NewReader(serializedTx)
 	return NewTxFromReader(br)
 }
 
-// NewTxFromReader returns a new instance of a bitcoin transaction given a
+// NewTxFromReader returns a new instance of a litecoin transaction given a
 // Reader to deserialize the transaction.  See Tx.
 func NewTxFromReader(r io.Reader) (*Tx, error) {
 	// Deserialize the bytes into a MsgTx.
